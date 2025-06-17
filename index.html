@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: #f5f5f5;
+            background-image:
+            repeating-linear-gradient(
+                to right, transparent 0 100px,
+                #25283b22 100px 101px
+            ),
+            repeating-linear-gradient(
+                to bottom, transparent 0 100px,
+                #25283b22 100px 101px
+            );
+        }
+        
+        body::before{
+            position: absolute;
+            width: min(1400px, 90vw);
+            top: 10%;
+            left: 50%;
+            height: 90%;
+            transform: translateX(-50%);
+            content: '';
+            background-image: url(images/bg.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-position: top center;
+            pointer-events: none;
+        }
+    </style>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1">
+    <img src="images/movie1.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+<div class="item" style="--position: 2">
+    <img src="images/movie2.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+<div class="item" style="--position: 3">
+    <img src="images/movie3.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+<div class="item" style="--position: 4">
+    <img src="images/movie4.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+            <div class="item" style="--position: 5">
+    <img src="images/movie5.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+<div class="item" style="--position: 6">
+    <img src="images/movie6.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+<div class="item" style="--position: 7">
+    <img src="images/movie7.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+<div class="item" style="--position: 8">
+    <img src="images/movie8.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+            <div class="item" style="--position: 9">
+    <img src="images/movie9.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+<div class="item" style="--position: 10">
+    <img src="images/movie10.jpg" alt="">
+    <button class="like-btn">
+        <img src="images/like.png" alt="Like">
+    </button>
+</div>
+
+        </div>
+        <div class="content">
+            <h1 data-content="WATCH NOW">
+                WATCH NOW
+            </h1>
+            <div class="author">
+                <p><b>MOVIE CHOOSE</b></p>
+                <p>
+                    Watch trending latest Movie here !!
+                </p>
+            </div>
+            <div class="model"></div>
+        </div>
+    </div>
+    <script>
+    document.querySelectorAll('.like-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            btn.classList.toggle('liked');
+        });
+    });
+</script>
+
+
+<script>
+    const slider = document.querySelector('.slider');
+    const items = document.querySelectorAll('.slider .item');
+
+    items.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            const position = parseInt(item.style.getPropertyValue('--position'));
+            if (position === 1) {
+                slider.style.animationPlayState = 'paused';
+            }
+        });
+
+        item.addEventListener('mouseleave', () => {
+            slider.style.animationPlayState = 'running';
+        });
+    });
+</script>
+
+</body>
+</html>
